@@ -12,4 +12,10 @@ describe("jQuery", function() {
 		expect($.fn.jquery).toBe('2.0.0')
 	})
 
+	describe("Selector", function() {
+		it ("should have length 0 if dom element doesn't exist", function() {
+			expect($('.missing-selector').length).toEqual(0);
+		})
+	});
+
 })
