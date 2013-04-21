@@ -23,6 +23,7 @@ describe("jQuery", function() {
 		var element;
 		beforeEach(function() {
 			element = $('<div id="foobar" class="foo bar">');
+			element.data("foo", "bar");
 		});
 
 		it ("should allow access to id from attr() method", function() {
@@ -43,6 +44,14 @@ describe("jQuery", function() {
 			var cloned = element.clone();
 			expect(cloned.attr('id')).toBe('foobar');
 			expect(cloned.attr('class')).toBe('foo bar');
+		})
+
+		it ("should have assigned data() to an object", function() {
+			expect(element.data()).toEqual(jasmine.any(Object))
+		})
+
+		it ("should resolve value from data().name", function() {
+			expect(element.data().foo).toEqual("bar")
 		})
 
 	});
